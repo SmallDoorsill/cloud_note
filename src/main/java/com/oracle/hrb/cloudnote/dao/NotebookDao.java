@@ -10,5 +10,5 @@ public interface NotebookDao {
     void delete(String id);
     List<Notebook> findByUserSpecial(String userId);
     List<Notebook> findByUserNormal(String userId);
-
+    Notebook findByName(Notebook notebook);
 }

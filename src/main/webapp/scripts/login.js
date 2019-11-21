@@ -90,7 +90,7 @@ function register() {
                         closeOnConfirm: false
                     },
                     function(){
-                        location.href="edit.html";
+                        location.href="login.html";
                     });
             } else {
                 if (data['name_null']) {

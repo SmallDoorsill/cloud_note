@@ -33,7 +33,7 @@ public class UserController {
     @RequestMapping("/changePassword")
     public Object changePassword(String userId, String lastPassword, String newPassword, HttpSession session){
         Map<String, Object> result = new HashMap<>();
-                User user = (User) session.getAttribute("user");
+        User user = (User) session.getAttribute("user");
         lastPassword = SHa256Util.sha256(lastPassword);
         lastPassword = SHa256Util.sha256(lastPassword);
         if (user == null || !user.getId().equals(userId)){
