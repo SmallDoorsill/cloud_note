@@ -60,6 +60,20 @@ function addNoteBook(){
 			if (data['success']) {
                 sweetAlert("恭喜你！", "添加笔记本成功", "success");
                 var nb = data['notebook'];
+                //	关闭弹出框
+				$('.cancle').click();
+				//	新添加的节点放置在普通笔记本的第一位
+                $('#first_side_right .contacts-list li:first')
+					.after('<li class="online">\n' +
+                        '<a class=\'unchecked\'>\n' +
+                        '<i class="fa fa-book" title="笔记本" rel="tooltip-bottom"></i>' +
+                        nb.name +
+                        '<button type="button" class="btn btn-default btn-xs btn_position btn_delete"><i class="fa fa-times"></i></button>\n' +
+                        '</a>\n' +
+                        '</li>');
+                $('#first_side_right .contacts-list li:first').next().data('notebook', nb);
+                //	新加入笔记本被选中状态
+                $('#first_side_right .contacts-list li:first').next().click();
 			} else if (data['name_null']){
                 sweetAlert("出错了！", "笔记本名称不能为空", "error");
 			} else if (data['name_repeat']){
